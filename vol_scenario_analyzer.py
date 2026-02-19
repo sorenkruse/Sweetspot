@@ -355,7 +355,7 @@ st.markdown("""
         font-family: 'JetBrains Mono', monospace;
         font-size: 2rem;
         font-weight: 700;
-        background: linear-gradient(135deg, #ff6b6b, #ffa500, #ff6b6b);
+        background: linear-gradient(135deg, #1b5e20, #2e7d32, #4caf50);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         margin-bottom: 0;
@@ -363,39 +363,9 @@ st.markdown("""
     
     .subtitle {
         font-family: 'DM Sans', sans-serif;
-        color: #888;
+        color: #666;
         font-size: 0.95rem;
         margin-top: -8px;
-    }
-    
-    .metric-card {
-        background: linear-gradient(145deg, #1a1a2e, #16213e);
-        border: 1px solid #2a2a4a;
-        border-radius: 12px;
-        padding: 16px 20px;
-        margin: 4px 0;
-    }
-    
-    .metric-label {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.75rem;
-        color: #888;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-    
-    .metric-value {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #fff;
-    }
-    
-    .metric-value.positive { color: #00e676; }
-    .metric-value.negative { color: #ff5252; }
-    
-    div[data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #0d1117, #161b22);
     }
     
     .stTabs [data-baseweb="tab-list"] {
@@ -586,7 +556,7 @@ with tab_forecast:
     vix_color = "#dc2626" if vix_change > 0 else "#16a34a"
     
     box_style = (
-        "background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); "
+        "background:#f8f9fa; border:1px solid #dee2e6; "
         "border-radius:8px; padding:10px 16px; height:70px; display:flex; "
         "flex-direction:column; justify-content:center;"
     )
@@ -595,25 +565,25 @@ with tab_forecast:
     with sb1:
         st.markdown(
             f'<div style="{box_style}">'
-            f'<span style="color:#999; font-size:0.7rem; font-family:JetBrains Mono;">SPOT</span>'
+            f'<span style="color:#6c757d; font-size:0.7rem; font-family:JetBrains Mono;">SPOT</span>'
             f'<span style="font-family:JetBrains Mono; font-size:1.1rem; color:{spot_color};">'
             f'{S:,.0f} → {fc_new_spot:,.0f}</span></div>', unsafe_allow_html=True)
     with sb2:
         st.markdown(
             f'<div style="{box_style}">'
-            f'<span style="color:#999; font-size:0.7rem; font-family:JetBrains Mono;">SPOT Δ</span>'
+            f'<span style="color:#6c757d; font-size:0.7rem; font-family:JetBrains Mono;">SPOT Δ</span>'
             f'<span style="font-family:JetBrains Mono; font-size:1.1rem; color:{spot_color};">'
             f'{fc_spot_change:+.1f}% ({fc_new_spot - S:+,.0f})</span></div>', unsafe_allow_html=True)
     with sb3:
         st.markdown(
             f'<div style="{box_style}">'
-            f'<span style="color:#999; font-size:0.7rem; font-family:JetBrains Mono;">VIX</span>'
+            f'<span style="color:#6c757d; font-size:0.7rem; font-family:JetBrains Mono;">VIX</span>'
             f'<span style="font-family:JetBrains Mono; font-size:1.1rem; color:{vix_color};">'
             f'{vix_level:.1f} → {fc_new_vix:.1f}</span></div>', unsafe_allow_html=True)
     with sb4:
         st.markdown(
             f'<div style="{box_style}">'
-            f'<span style="color:#999; font-size:0.7rem; font-family:JetBrains Mono;">VIX Δ</span>'
+            f'<span style="color:#6c757d; font-size:0.7rem; font-family:JetBrains Mono;">VIX Δ</span>'
             f'<span style="font-family:JetBrains Mono; font-size:1.1rem; color:{vix_color};">'
             f'{vix_change:+.1f} ({vix_change/vix_level*100:+.0f}%)</span></div>', unsafe_allow_html=True)
     
@@ -667,37 +637,37 @@ with tab_forecast:
         
         with rc1:
             st.markdown(
-                f'<div style="background:linear-gradient(145deg,#1a2e1a,#162e16); border:1px solid #2a4a2a; border-radius:12px; padding:16px;">'
-                f'<span style="color:#00e676; font-family:JetBrains Mono; font-size:0.75rem;">🥇 BESTER ROI (Entry≥$5)</span><br>'
-                f'<span style="font-family:JetBrains Mono; font-size:1.6rem; color:#00e676; font-weight:700;">{best_pct["P&L %"]:+,.0f}%</span>'
-                f'<span style="font-family:JetBrains Mono; font-size:1rem; color:#88cc88; margin-left:8px;">(${best_pct["P&L $"]:+,.0f})</span><br>'
-                f'<span style="color:#ccc; font-family:JetBrains Mono; font-size:0.9rem;">'
+                f'<div style="background:linear-gradient(145deg,#e8f5e9,#c8e6c9); border:1px solid #a5d6a7; border-radius:12px; padding:16px;">'
+                f'<span style="color:#1b5e20; font-family:JetBrains Mono; font-size:0.75rem;">🥇 BESTER ROI (Entry≥$5)</span><br>'
+                f'<span style="font-family:JetBrains Mono; font-size:1.6rem; color:#2e7d32; font-weight:700;">{best_pct["P&L %"]:+,.0f}%</span>'
+                f'<span style="font-family:JetBrains Mono; font-size:1rem; color:#388e3c; margin-left:8px;">(${best_pct["P&L $"]:+,.0f})</span><br>'
+                f'<span style="color:#333; font-family:JetBrains Mono; font-size:0.9rem;">'
                 f'Strike {best_pct["Strike"]} · {best_pct["DTE"]} DTE</span><br>'
-                f'<span style="color:#888; font-size:0.8rem;">Entry ${best_pct["Entry $"]:.2f} → Exit ${best_pct["Exit $"]:.2f}</span>'
+                f'<span style="color:#666; font-size:0.8rem;">Entry ${best_pct["Entry $"]:.2f} → Exit ${best_pct["Exit $"]:.2f}</span>'
                 f'</div>', unsafe_allow_html=True
             )
         
         with rc2:
             st.markdown(
-                f'<div style="background:linear-gradient(145deg,#1a1a2e,#16163e); border:1px solid #2a2a4a; border-radius:12px; padding:16px;">'
-                f'<span style="color:#42a5f5; font-family:JetBrains Mono; font-size:0.75rem;">💰 BESTER ABS. P&L</span><br>'
-                f'<span style="font-family:JetBrains Mono; font-size:1.6rem; color:#42a5f5; font-weight:700;">${best_abs["P&L $"]:+,.0f}</span>'
-                f'<span style="font-family:JetBrains Mono; font-size:1rem; color:#88aacc; margin-left:8px;">({best_abs["P&L %"]:+,.0f}%)</span><br>'
-                f'<span style="color:#ccc; font-family:JetBrains Mono; font-size:0.9rem;">'
+                f'<div style="background:linear-gradient(145deg,#e3f2fd,#bbdefb); border:1px solid #90caf9; border-radius:12px; padding:16px;">'
+                f'<span style="color:#1565c0; font-family:JetBrains Mono; font-size:0.75rem;">💰 BESTER ABS. P&L</span><br>'
+                f'<span style="font-family:JetBrains Mono; font-size:1.6rem; color:#1565c0; font-weight:700;">${best_abs["P&L $"]:+,.0f}</span>'
+                f'<span style="font-family:JetBrains Mono; font-size:1rem; color:#1976d2; margin-left:8px;">({best_abs["P&L %"]:+,.0f}%)</span><br>'
+                f'<span style="color:#333; font-family:JetBrains Mono; font-size:0.9rem;">'
                 f'Strike {best_abs["Strike"]} · {best_abs["DTE"]} DTE</span><br>'
-                f'<span style="color:#888; font-size:0.8rem;">Entry ${best_abs["Entry $"]:.2f} → Exit ${best_abs["Exit $"]:.2f}</span>'
+                f'<span style="color:#666; font-size:0.8rem;">Entry ${best_abs["Entry $"]:.2f} → Exit ${best_abs["Exit $"]:.2f}</span>'
                 f'</div>', unsafe_allow_html=True
             )
         
         with rc3:
             st.markdown(
-                f'<div style="background:linear-gradient(145deg,#2e1a2e,#3e163e); border:1px solid #4a2a4a; border-radius:12px; padding:16px;">'
-                f'<span style="color:#ab47bc; font-family:JetBrains Mono; font-size:0.75rem;">⚡ BESTE EFFIZIENZ (Entry≥$10)</span><br>'
-                f'<span style="font-family:JetBrains Mono; font-size:1.6rem; color:#ab47bc; font-weight:700;">{best_efficiency["P&L %"]:+,.0f}%</span>'
-                f'<span style="font-family:JetBrains Mono; font-size:1rem; color:#cc88cc; margin-left:8px;">(${best_efficiency["P&L $"]:+,.0f})</span><br>'
-                f'<span style="color:#ccc; font-family:JetBrains Mono; font-size:0.9rem;">'
+                f'<div style="background:linear-gradient(145deg,#f3e5f5,#e1bee7); border:1px solid #ce93d8; border-radius:12px; padding:16px;">'
+                f'<span style="color:#7b1fa2; font-family:JetBrains Mono; font-size:0.75rem;">⚡ BESTE EFFIZIENZ (Entry≥$10)</span><br>'
+                f'<span style="font-family:JetBrains Mono; font-size:1.6rem; color:#7b1fa2; font-weight:700;">{best_efficiency["P&L %"]:+,.0f}%</span>'
+                f'<span style="font-family:JetBrains Mono; font-size:1rem; color:#9c27b0; margin-left:8px;">(${best_efficiency["P&L $"]:+,.0f})</span><br>'
+                f'<span style="color:#333; font-family:JetBrains Mono; font-size:0.9rem;">'
                 f'Strike {best_efficiency["Strike"]} · {best_efficiency["DTE"]} DTE</span><br>'
-                f'<span style="color:#888; font-size:0.8rem;">Entry ${best_efficiency["Entry $"]:.2f} → Exit ${best_efficiency["Exit $"]:.2f}</span>'
+                f'<span style="color:#666; font-size:0.8rem;">Entry ${best_efficiency["Entry $"]:.2f} → Exit ${best_efficiency["Exit $"]:.2f}</span>'
                 f'</div>', unsafe_allow_html=True
             )
         
@@ -787,9 +757,9 @@ with tab_forecast:
             yaxis_title="Strike",
             font=dict(family="JetBrains Mono, monospace"),
             height=max(350, len(fc_pivot.index) * 20),
-            template="plotly_dark",
-            paper_bgcolor="rgba(0,0,0,0)",
-            plot_bgcolor="rgba(13,17,23,1)",
+            template="plotly_white",
+            paper_bgcolor="rgba(255,255,255,0)",
+            plot_bgcolor="rgba(248,249,250,1)",
             margin=dict(l=80, r=40, t=20, b=60),
         )
         
@@ -851,9 +821,9 @@ with tab_forecast:
             ))
         
         # Mark current forecast
-        fig_fc_spot.add_vline(x=fc_spot_change, line_dash="dash", line_color="yellow",
+        fig_fc_spot.add_vline(x=fc_spot_change, line_dash="dash", line_color="#e65100",
                               opacity=0.6, annotation_text=f"Prognose {fc_spot_change:+.1f}%",
-                              annotation_font_color="yellow", annotation_font_size=10)
+                              annotation_font_color="#e65100", annotation_font_size=10)
         fig_fc_spot.add_hline(y=0, line_dash="dot", line_color="gray", opacity=0.3)
         
         fig_fc_spot.update_layout(
@@ -861,9 +831,9 @@ with tab_forecast:
             yaxis_title="P&L %",
             font=dict(family="JetBrains Mono, monospace"),
             height=380,
-            template="plotly_dark",
-            paper_bgcolor="rgba(0,0,0,0)",
-            plot_bgcolor="rgba(13,17,23,1)",
+            template="plotly_white",
+            paper_bgcolor="rgba(255,255,255,0)",
+            plot_bgcolor="rgba(248,249,250,1)",
             legend=dict(font=dict(size=11)),
             margin=dict(l=60, r=40, t=20, b=60),
         )
@@ -921,9 +891,9 @@ with tab_heat:
         yaxis_title="Strike",
         font=dict(family="JetBrains Mono, monospace"),
         height=max(400, len(K_range) * 22),
-        template="plotly_dark",
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(13,17,23,1)",
+        template="plotly_white",
+        paper_bgcolor="rgba(255,255,255,0)",
+        plot_bgcolor="rgba(248,249,250,1)",
         margin=dict(l=80, r=40, t=40, b=60),
     )
     
@@ -939,7 +909,7 @@ with tab_heat:
         )
         fig_hm.add_annotation(
             x=-0.5, y=atm_idx, text="ATM", showarrow=False,
-            font=dict(color="white", size=10, family="JetBrains Mono"),
+            font=dict(color="#333", size=10, family="JetBrains Mono"),
             xanchor="right", xshift=-5,
         )
     
@@ -1027,9 +997,9 @@ with tab_curves:
             title="Scenario P&L% by DTE",
             font=dict(family="JetBrains Mono, monospace"),
             height=450,
-            template="plotly_dark",
-            paper_bgcolor="rgba(0,0,0,0)",
-            plot_bgcolor="rgba(13,17,23,1)",
+            template="plotly_white",
+            paper_bgcolor="rgba(255,255,255,0)",
+            plot_bgcolor="rgba(248,249,250,1)",
             legend=dict(font=dict(size=11)),
             margin=dict(l=60, r=40, t=60, b=60),
         )
@@ -1054,9 +1024,9 @@ with tab_curves:
             title="Entry Cost by DTE",
             font=dict(family="JetBrains Mono, monospace"),
             height=350,
-            template="plotly_dark",
-            paper_bgcolor="rgba(0,0,0,0)",
-            plot_bgcolor="rgba(13,17,23,1)",
+            template="plotly_white",
+            paper_bgcolor="rgba(255,255,255,0)",
+            plot_bgcolor="rgba(248,249,250,1)",
             margin=dict(l=60, r=40, t=60, b=60),
         )
         st.plotly_chart(fig_entry, use_container_width=True)
@@ -1079,9 +1049,9 @@ with tab_curves:
             title="Vega Exposure by DTE",
             font=dict(family="JetBrains Mono, monospace"),
             height=350,
-            template="plotly_dark",
-            paper_bgcolor="rgba(0,0,0,0)",
-            plot_bgcolor="rgba(13,17,23,1)",
+            template="plotly_white",
+            paper_bgcolor="rgba(255,255,255,0)",
+            plot_bgcolor="rgba(248,249,250,1)",
             barmode="group",
             margin=dict(l=60, r=40, t=60, b=60),
         )
@@ -1205,9 +1175,9 @@ with tab_sim:
     
     fig_sim.update_layout(
         height=750,
-        template="plotly_dark",
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(13,17,23,1)",
+        template="plotly_white",
+        paper_bgcolor="rgba(255,255,255,0)",
+        plot_bgcolor="rgba(248,249,250,1)",
         font=dict(family="JetBrains Mono, monospace", size=11),
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
         margin=dict(l=60, r=60, t=80, b=40),
